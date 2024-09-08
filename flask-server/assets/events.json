@@ -1,0 +1,93 @@
+[
+    {
+        "name": "Health Seminar",
+        "description": "A seminar on improving general health.",
+        "date": "2024-10-05",
+        "time": "10:00",
+        "place": "Conference Room A",
+        "type": "conference",
+        "creator": "anna_pap",
+        "participants": [
+            {
+                "username": "giorgos_io",
+                "status": "yes"
+            },
+            {
+                "username": "maria_nik",
+                "status": "maybe"
+            }
+        ]
+    },
+    {
+        "name": "Fitness Meetup",
+        "description": "A meetup for fitness enthusiasts.",
+        "date": "2024-10-12",
+        "time": "15:00",
+        "place": "Gymnasium",
+        "type": "meet up",
+        "creator": "giorgos_io",
+        "participants": [
+            {
+                "username": "kostas_vas",
+                "status": "yes"
+            }
+        ]
+    },
+    {
+        "name": "Nutrition Workshop",
+        "description": "A workshop on nutrition and diet.",
+        "date": "2024-11-20",
+        "time": "09:00",
+        "place": "Main Hall",
+        "type": "conference",
+        "creator": "maria_nik",
+        "participants": [
+            {
+                "username": "elena_pet",
+                "status": "maybe"
+            },
+            {
+                "username": "giorgos_io",
+                "status": "yes"
+            }
+        ]
+    },
+    {
+        "name": "Winter Festival",
+        "description": "An annual winter festival with various activities.",
+        "date": "2024-12-01",
+        "time": "18:00",
+        "place": "City Park",
+        "type": "festival",
+        "creator": "kostas_vas",
+        "participants": [
+            {
+                "username": "maria_nik",
+                "status": "yes"
+            },
+            {
+                "username": "elena_pet",
+                "status": "maybe"
+            }
+        ]
+    },
+    {
+        "name": "Annual Gala",
+        "description": "A formal gala event to celebrate achievements.",
+        "date": "2024-12-15",
+        "time": "20:00",
+        "place": "Grand Ballroom",
+        "type": "party",
+        "creator": "elena_pet",
+        "participants": [
+            {
+                "username": "anna_pap",
+                "status": "yes"
+            },
+            {
+                "username": "kostas_vas",
+                "status": "yes"
+            }
+        ]
+    }
+]

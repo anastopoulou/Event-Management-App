@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Menu</title>
+</head>
+<body>
+    <h1>Admin Menu</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('admin_view_all_events') }}">All Events</a></li>
+			<li><a href="{{ url_for('admin_view_all_users') }}">All Users</a></li>
+            <li><a href="{{ url_for('login') }}">Logout</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

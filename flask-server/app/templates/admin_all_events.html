@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Events</title>
+</head>
+<body>
+
+    <h1>All Events</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <ul>
+        {% for event in events %}
+            <li>
+                <strong>Event Name:</strong> {{ event.name }}<br>
+                <strong>Description:</strong> {{ event.description }}<br>
+                <strong>Date:</strong> {{ event.date }}<br>
+                <strong>Time:</strong> {{ event.time }}<br>
+                <strong>Place:</strong> {{ event.place }}<br>
+                <strong>Type:</strong> {{ event.type }}<br>
+                <strong>Creator:</strong> {{ event.creator }}<br>
+                
+                <form action="{{ url_for('admin_delete_event', event_name=event.name) }}" method="post" style="display:inline;">
+                    <input type="hidden" name="event_name" value="{{ event.name }}">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('show_admin') }}">Back to Menu</a>
+
+</body>
+</html>

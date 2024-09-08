@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Events</title>
+</head>
+<body>
+
+    <h1>Search Events</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form action="/search_events_action" method="get">
+        <label for="search_term">Search:</label>
+        <input type="text" id="search_term" name="search_term" value="{{ search_term }}">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if events %}
+        <h2>Search Results:</h2>
+        <ul>
+            {% for event in events %}
+                <li>
+                    {{ event.name }} - 
+                    <form action="{{ url_for('view_event', event_name=event.name) }}" method="get" style="display:inline;">
+                    <button type="submit">Details</button>
+                </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No events found matching your criteria.</p>
+    {% endif %}
+	<br><br>
+    <a href="{{ url_for('show_user') }}">Back to Menu</a>
+
+</body>
+</html>

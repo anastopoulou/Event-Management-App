@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Created Events</title>
+</head>
+<body>
+
+    <h1>Created Events</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    {% if events %}
+        <ul>
+            {% for event in events %}
+                <li>
+                    {{ event.name }}
+
+                    <form action="{{ url_for('view_event', event_name=event.name) }}" method="get" style="display:inline;">
+                        <button type="submit">Details</button>
+                    </form>
+
+                    <form action="{{ url_for('show_update_event', event_name=event.name) }}" method="get" style="display:inline;">
+                        <button type="submit">Update</button>
+                    </form>
+
+                    <form action="{{ url_for('delete_event_action') }}" method="post" style="display:inline;">
+                        <input type="hidden" name="event_name" value="{{ event.name }}">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No events found.</p>
+    {% endif %}
+
+    <a href="{{ url_for('show_user') }}">Back to Menu</a>
+
+</body>
+</html>

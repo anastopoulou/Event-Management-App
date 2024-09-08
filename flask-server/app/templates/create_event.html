@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Event</title>
+</head>
+<body>
+
+    <h1>Create Event</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form action="/create_event_action" method="post">
+        <label for="name">Event Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+        <br>
+
+        <label for="date">Date (YYYY-MM-DD):</label>
+        <input type="date" id="date" name="date" required>
+        <br>
+
+        <label for="time">Time (HH:MM):</label>
+        <input type="time" id="time" name="time" required>
+        <br>
+
+        <label for="place">Place:</label>
+        <input type="text" id="place" name="place" required>
+        <br>
+
+        <label for="type">Type:</label>
+        <select id="type" name="type" required>
+            {% for event_type in event_types %}
+                <option value="{{ event_type }}">{{ event_type }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <button type="submit">Create Event</button><br><br>
+    </form>
+
+    <a href="{{ url_for('show_user') }}">Back to Menu</a>
+
+</body>
+</html>

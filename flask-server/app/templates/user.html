@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Menu</title>
+</head>
+<body>
+    <h1>User Menu</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('all_events') }}">All Events</a></li>
+            <li><a href="{{ url_for('show_search_events') }}">Search Events</a></li>
+            <li><a href="{{ url_for('show_create_event') }}">Create Event</a></li>
+            <li><a href="{{ url_for('created_events') }}">View Created Events</a></li>
+            <li><a href="{{ url_for('participated_events') }}">View My Events</a></li>
+            <li><a href="{{ url_for('login') }}">Logout</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Role</title>
+</head>
+<body>
+
+    <h1>Welcome!</h1>
+    <p>Please choose:</p>
+
+    <form action="{{ url_for('show_user') }}" method="get" style="display:inline;">
+        <button type="submit">Continue as User</button>
+    </form>
+
+    <form action="{{ url_for('show_admin') }}" method="get" style="display:inline;">
+        <button type="submit">Continue as Admin</button>
+    </form>
+
+</body>
+</html>

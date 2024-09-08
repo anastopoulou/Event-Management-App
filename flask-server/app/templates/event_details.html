@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Details</title>
+</head>
+<body>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <h1>{{ name }}</h1>
+    <p><strong>Description:</strong> {{ description }}</p>
+    <p><strong>Date:</strong> {{ date }}</p>
+    <p><strong>Time:</strong> {{ time }}</p>
+    <p><strong>Place:</strong> {{ place }}</p>
+    <p><strong>Type:</strong> {{ type }}</p>
+    <p><strong>Creator:</strong> {{ creator }}</p>
+
+    <h2>Participants:</h2>
+    <ul>
+        {% for participant in participants %}
+            <li>{{ participant.username }} - {{ participant.status }}</li>
+        {% endfor %}
+    </ul>
+
+	<form action="{{ url_for('participate_event', event_name=name) }}" method="post">
+        <label for="status">Your participation status:</label>
+        <select id="status" name="status">
+            <option value="yes">Yes</option>
+            <option value="maybe">Maybe</option>
+        </select>
+        <button type="submit">Post</button>
+    </form><br><br>
+
+    <a href="{{ url_for('show_user') }}">Back to Menu</a>
+
+</body>
+</html>

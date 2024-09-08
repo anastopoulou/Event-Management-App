@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Event</title>
+</head>
+<body>
+
+    <h1>Update Event</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form action="/update_event_action" method="post">
+        <input type="hidden" name="event_name" value="{{ event.name }}">
+        
+        <label for="attribute">Attribute to Update:</label>
+        <select name="attribute" id="attribute" required>
+            <option value="name">Name</option>
+            <option value="description">Description</option>
+            <option value="place">Place</option>
+            <option value="type">Type</option>
+        </select><br><br>
+
+        <label for="new_value">New Info:</label>
+        <input type="text" id="new_value" name="new_value" maxlength="20" required><br><br>
+
+        <button type="submit">Update</button><br><br>
+    </form>
+
+    <a href="{{ url_for('created_events') }}">Back to My Events</a>
+
+</body>
+</html>

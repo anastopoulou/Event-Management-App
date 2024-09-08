@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Users</title>
+</head>
+<body>
+
+    <h1>All Users</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <ul>
+        {% for user in users %}
+            <li>
+                <strong>Username:</strong> {{ user.username }}<br>
+                <strong>First Name:</strong> {{ user.first_name }}<br>
+                <strong>Last Name:</strong> {{ user.last_name }}<br>
+                <strong>Email:</strong> {{ user.email }}<br>
+                
+                <form action="{{ url_for('admin_delete_user') }}" method="post" style="display:inline;">
+                    <input type="hidden" name="username" value="{{ user.username }}">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('show_admin') }}">Back to Menu</a>
+
+</body>
+</html>
